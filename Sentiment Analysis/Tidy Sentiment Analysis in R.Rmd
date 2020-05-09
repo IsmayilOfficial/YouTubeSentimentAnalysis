@@ -20,6 +20,9 @@ library("RColorBrewer")
 ```
 
 ```{r}
+x<-read.csv("commentsUS.csv")
+za<-x$comment_text
+write.csv(za,"za.csv")
 text <- readLines(file.choose())
 
 ```
@@ -89,6 +92,7 @@ docs <- tm_map(docs, stripWhitespace)
 ```
 
 ```{r}
+
 dtm <- TermDocumentMatrix(docs)
 m <- as.matrix(dtm)
 v <- sort(rowSums(m),decreasing=TRUE)
